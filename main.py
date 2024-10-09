@@ -1,7 +1,5 @@
-from datetime import date
+import sys
 
-print("Hoy es: " + str(date.today()))
-
-parsecs = 11
-lightyears = parsecs * 3.26
-print('{0} parsecs is {1} lightyears.'.format(parsecs, lightyears))
+print(sys.argv)
+print(sys.argv[0]) # program name
+print(sys.argv[1]) # first clear
