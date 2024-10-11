@@ -1,5 +1,11 @@
-parsecs_input = input("Input number of parsecs:")
-parsecs = int(parsecs_input)
-lightyears = 3.26156 * parsecs
+import os
+os.system('cls')
 
-print(parsecs_input + " parsecs is " + str(lightyears) + " lightyears")
+amalthea_group = ["Metis", "Adrastea", "Amalthea", "Thebe"]
+galilean_moons = ["Io", "Europa", "Ganymede", "Callisto"]
+
+regular_satellite_moons = amalthea_group + galilean_moons
+ordenada = sorted(regular_satellite_moons, reverse=True)
+
+print(ordenada)
+
