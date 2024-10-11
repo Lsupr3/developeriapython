@@ -1,10 +1,15 @@
 import os
 os.system('cls')
 
-from time import sleep
+new_planet = ''
+planets = []
 
-countdown = [4, 3, 2, 1, 0]
-for number in countdown:
-    print(number)
-    sleep(1)
-print("Lift off!! 🚀")
+while new_planet.lower() != 'done':
+    if new_planet:
+        planets.append(new_planet)
+        print(planets)
+    new_planet = input('Enter a new planet or done if done: ')
+#end while
+
+for planeta in planets:
+    print(planeta)
