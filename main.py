@@ -1,20 +1,30 @@
 import os
 os.system('cls')
 
-planet = {
-    'name': 'Earth',
-    'moons': 1
+rainfall = {
+    'october': 3.5,
+    'november': 4.2,
+    'december': 2.1
 }
 
-#print(planet['pepe'])
-planet['moons'] = 79
-print(planet.get('moons'))
-planet['diametro'] = {
-    'polar': 133709,
-    'equatorial': 142984    
-}
+'''for item in rainfall.items():
+    print(f'{item[0]}: {item[1]}cm')
 
-print(planet.keys())
-print(planet.values())
-print(f'{planet["name"]} polar diameter: {planet["diametro"]["equatorial"]}, {planet["diametro"]["polar"]}')
-print(planet)
+for key in rainfall.keys():
+    print(f'{key}: {rainfall[key]}cm')
+'''
+
+if 'december' in rainfall:
+    rainfall['december'] += 1
+else:
+    rainfall['december'] = 1
+
+for key, value in rainfall.items():
+    print(f'{key}: {value}cm')
+
+total_rainfall = 0
+for value in rainfall.values():
+    total_rainfall = total_rainfall + value
+
+print(f'There was {total_rainfall}cm in the last quarter.')
+print(f'There was {sum(rainfall.values())}cm in the last quarter.')
