@@ -1,15 +1,20 @@
 import os
 os.system('cls')
 
-new_planet = ''
-planets = []
+planet = {
+    'name': 'Earth',
+    'moons': 1
+}
 
-while new_planet.lower() != 'done':
-    if new_planet:
-        planets.append(new_planet)
-        print(planets)
-    new_planet = input('Enter a new planet or done if done: ')
-#end while
+#print(planet['pepe'])
+planet['moons'] = 79
+print(planet.get('moons'))
+planet['diametro'] = {
+    'polar': 133709,
+    'equatorial': 142984    
+}
 
-for planeta in planets:
-    print(planeta)
+print(planet.keys())
+print(planet.values())
+print(f'{planet["name"]} polar diameter: {planet["diametro"]["equatorial"]}, {planet["diametro"]["polar"]}')
+print(planet)
