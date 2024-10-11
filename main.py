@@ -1,11 +1,10 @@
 import os
 os.system('cls')
 
-amalthea_group = ["Metis", "Adrastea", "Amalthea", "Thebe"]
-galilean_moons = ["Io", "Europa", "Ganymede", "Callisto"]
+from time import sleep
 
-regular_satellite_moons = amalthea_group + galilean_moons
-ordenada = sorted(regular_satellite_moons, reverse=True)
-
-print(ordenada)
-
+countdown = [4, 3, 2, 1, 0]
+for number in countdown:
+    print(number)
+    sleep(1)
+print("Lift off!! 🚀")
