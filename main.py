@@ -1,33 +1,34 @@
-import os
-os.system('cls')
-
-
-class Square:
-    def __init__(self, ancho, alto):
-        self.__height = alto
-        self.__width = ancho
-
-    def isSquare(self):
-        if self.__height == self.__width:
-            return True
+class Participant:
+    def __init__(self, name):
+        self.points = 0
+        self.choice = ""
+        self.name = name
+    
+    def isChooseRight(self, choice):
+        return choice in "rock, paper, scissor"
+    
+    def choose(self):
+        self.choice = input("{name}, select rock, paper or scissor: ".format(name= self.name))
+        if self.isChooseRight(self.choice):
+            print("{name} selects {choice}".format(name=self.name, choice = self.choice))
         else:
-            return False
-        
-    @property    
-    def height(self):
-        return self.__height
+            print("eleccion no valida")
 
-    @height.setter
-    def height(self, new_value):
-        if new_value >= 0:
-            self.__height = new_value
-        else:
-            raise Exception("value needs to be 0 or larger")
+class GameRound:
+    def __ini__(self):
+        self.winner
 
-try:
-    square = Square(2,2)
-    square.height = 3
-    print(square.isSquare())
-    print(square.height)
-except Exception as err:
-    print(err)
+
+
+class Game:
+    def __init__(self, name1, name2):
+        self.isNotGameOver = True
+        self.participant = Participant(name1)
+        self.secondParticipant = Participant(name2)
+
+        while self.isNotGameOver:
+            self.participant.choose()
+            self.secondParticipant.choose()
+            
+
+game = Game("Juanito", "Pepita")
