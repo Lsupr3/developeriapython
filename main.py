@@ -4,19 +4,15 @@ os.system('cls')
 
 class Square:
     def __init__(self, ancho, alto):
-        self.__height = ancho
-        self.__width = alto
-
-    def set_side(self, new_side):
-        self.__height = new_side
-        self.__width = new_side
+        self.__height = alto
+        self.__width = ancho
 
     def isSquare(self):
         if self.__height == self.__width:
             return True
         else:
             return False
-    
+        
     @property    
     def height(self):
         return self.__height
@@ -28,8 +24,10 @@ class Square:
         else:
             raise Exception("value needs to be 0 or larger")
 
-square = Square(2, 2)
-square.height = 2
-square.set_side(3)
-print(square.isSquare())
-print(square.height)
+try:
+    square = Square(2,2)
+    square.height = 3
+    print(square.isSquare())
+    print(square.height)
+except Exception as err:
+    print(err)
