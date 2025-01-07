@@ -1,6 +1,7 @@
-from datetime import date
 import os
 os.system('clear')
+import sys
 
-print(f"Hoy es: {date.today()}")
-print("Hoy es: " + str(date.today()))
+print(sys.argv)
+print(sys.argv[0]) #program name
+print(sys.argv[1]) #argumento uno
