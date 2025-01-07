@@ -28,8 +28,6 @@ if numero1.isdigit() and numero2.isdigit():
         else:
             print("No se puede realizar una división por cero")
     else:
-        print("Operación no válida. Solo pueden ser '+', '-' o '*'")
+        print("Operación no válida. Solo pueden ser '+', '-', '*' o '/'")
 else:
     print("Alguno de los números no es válido")
-
-
