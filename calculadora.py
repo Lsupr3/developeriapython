@@ -1,10 +1,14 @@
 import os
 os.system('clear')
+import sys
 
-numero1 = input("Introduce el primer número: ")
-operacion = input("Introduce la operación aritmética deseada: ")
-numero2 = input("Introduce el segundo número: ")
+#numero1 = input("Introduce el primer número: ")
+#operacion = input("Introduce la operación aritmética deseada: ")
+#numero2 = input("Introduce el segundo número: ")
 
+numero1 = sys.argv[1]
+operacion = sys.argv[2]
+numero2 = sys.argv[3]
 
 # Comprobar los datos de entrada y hacer las conversiones
 if numero1.isdigit() and numero2.isdigit():
