@@ -23,7 +23,7 @@ if numero1.isdigit() and numero2.isdigit():
     elif operacion == "*":
         print(int1 * int2)
     elif operacion == "/":
-        if int2 > 0:
+        if int2 != 0:
             print(int1 / int2)
         else:
             print("No se puede realizar una división por cero")
