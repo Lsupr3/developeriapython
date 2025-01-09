@@ -315,3 +315,72 @@ Para profundizar más en los bucles y otras estructuras de control en Python, co
 ### Palabras Finales:  
    
 Los bucles son una de las primeras grandes herramientas que aprenderás en programación y son fundamentales para muchos algoritmos y estructuras de datos. Al comprender cómo funcionan los bucles
+
+   
+### Reto: Juego de Adivinanza de Números  
+   
+**Descripción:**  
+El objetivo de este juego es que el usuario adivine un número secreto generado aleatoriamente por el programa. El juego le dará pistas al usuario indicando si su suposición es demasiado alta o demasiado baja. El juego termina cuando el usuario adivina el número o decide rendirse.  
+   
+**Instrucciones:**  
+   
+1. El programa debe generar un número secreto aleatorio entre 1 y 100.  
+2. El usuario debe tener un número limitado de intentos para adivinar el número.  
+3. Después de cada intento, el programa debe indicar si el número ingresado por el usuario es mayor o menor que el número secreto.  
+4. Si el usuario adivina el número, el programa debe felicitarlo y mostrar cuántos intentos tomó.  
+5. El usuario puede rendirse en cualquier momento ingresando un valor específico (por ejemplo, "0").  
+6. Si el usuario se rinde o agota sus intentos, el programa debe revelar el número secreto.  
+   
+**Pistas:**  
+- Usa la biblioteca `random` para generar el número aleatorio.  
+- Utiliza un bucle `while` para permitir múltiples intentos.  
+- Usa variables para contar el número de intentos.  
+- Utiliza condicionales para verificar las suposiciones del usuario y proporcionar retroalimentación.  
+- Usa una lista para almacenar los intentos del usuario (opcional, pero puede ser útil para mostrar un historial de intentos).  
+   
+Aquí tienes una versión de codificación del reto de adivinanza de números. Esta versión utiliza variables, operadores aritméticos y booleanos, colecciones, condicionales y bucles, tal como especificaste.  
+   
+```python  
+import random  
+   
+# Generar un número secreto aleatorio entre 1 y 100  
+numero_secreto = random.randint(1, 100)  
+intentos = 0  
+max_intentos = 10  
+historial_intentos = []  
+   
+print("¡Bienvenido al juego de adivinanza de números!")  
+print(f"Adivina el número entre 1 y 100. Tienes {max_intentos} intentos. Ingresa '0' para rendirte.")  
+   
+# Bucle principal del juego  
+while intentos < max_intentos:  
+    intento = int(input("Ingresa tu adivinanza: "))  
+    if intento == 0:  
+        print(f"Te has rendido. El número secreto era {numero_secreto}.")  
+        break  
+  
+    intentos += 1  
+    historial_intentos.append(intento)  
+  
+    if intento < numero_secreto:  
+        print("Demasiado bajo. Inténtalo de nuevo.")  
+    elif intento > numero_secreto:  
+        print("Demasiado alto. Inténtalo de nuevo.")  
+    else:  
+        print(f"¡Felicidades! Adivinaste el número {numero_secreto} en {intentos} intentos.")  
+        break  
+   
+if intento != numero_secreto:  
+    print(f"Lo siento, has agotado tus {max_intentos} intentos. El número secreto era {numero_secreto}.")  
+    print("Historial de intentos:", historial_intentos)  
+```  
+   
+Este código contiene todos los elementos necesarios:  
+   
+- **Variables:** `numero_secreto`, `intentos`, `max_intentos`, `historial_intentos`, `intento`.  
+- **Operadores aritméticos y booleanos:** `+=`, `<`, `>`, `==`.  
+- **Colecciones:** `historial_intentos` (una lista que almacena los intentos del usuario).  
+- **Condicionales:** `if`, `elif`, `else` para verificar las suposiciones del usuario y proporcionar retroalimentación.  
+- **Bucles:** `while` para permitir múltiples intentos de adivinanza.  
+   
+Espero que este reto sea desafiante y educativo para tus alumnos. ¡Buena suerte!
