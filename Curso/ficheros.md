@@ -37,9 +37,6 @@ Para trabajar con un fichero, primero debemos abrirlo. En Python, utilizamos la 
   - `'a'`: Añadir. Escribe al final del archivo.  
   - `'b'`: Modo binario.  
 
-#### Ejercicio 1:  
-Abre un archivo llamado `mi_archivo.txt` en modo lectura y cierra el archivo después.
-
 ```python  
 file = open('archivo.txt', 'r')  
 # Realizar operaciones con el archivo  
@@ -53,12 +50,9 @@ El uso de `with` para abrir archivos es una práctica recomendada ya que se aseg
 with open('archivo.txt', 'r') as file:  
     # Realizar operaciones con el archivo  
 ```  
-   
-#### Ejercicio 2:  
-Abre el archivo `mi_archivo.txt` usando `with` y asegúrate de que se cierre automáticamente.  
-   
+
 ## 3. Leer Ficheros  
-   
+
 ### 3.1. Leer el contenido completo  
 La función `read()` lee todo el contenido del archivo y lo devuelve como una cadena.  
    
@@ -68,8 +62,7 @@ with open('archivo.txt', 'r') as file:
     print(content)  
 ```  
    
-#### Ejercicio 3:  
-Crea un archivo llamado `datos.txt` con algunos textos. Luego, escribe un programa que lea y muestre el contenido completo del archivo.  
+
    
 ### 3.2. Leer línea por línea  
 Leer línea por línea es útil cuando trabajamos con archivos grandes y no queremos cargar todo el contenido en memoria a la vez.  
@@ -82,23 +75,17 @@ with open('archivo.txt', 'r') as file:
     for line in file:  
         print(line, end='')  # Evita la doble línea en la salida  
 ```  
-   
-#### Ejercicio 4:  
-Escribe un programa que lea `datos.txt` línea por línea y muestre cada línea.  
-   
+
 ## 4. Escribir en Ficheros  
    
 ### 4.1. Escribir datos  
 La función `write()` permite escribir cadenas en un archivo.  
-   
+
 ```python  
 with open('archivo.txt', 'w') as file:  
     file.write('Este es un ejemplo de escritura.\n')  
 ```  
-   
-#### Ejercicio 5:  
-Crea un programa que escriba "Hola, Mundo!" en un archivo llamado `saludo.txt`.  
-   
+
 ### 4.2. Añadir datos  
 El modo de apertura `'a'` permite añadir datos al final del archivo sin sobrescribir el contenido existente.  
    
@@ -106,10 +93,7 @@ El modo de apertura `'a'` permite añadir datos al final del archivo sin sobresc
 with open('archivo.txt', 'a') as file:  
     file.write('Añadiendo una nueva línea.\n')  
 ```  
-   
-#### Ejercicio 6:  
-Escribe un programa que añada "Esta es una nueva línea." al final de `saludo.txt`.  
-   
+
 ## 5. Trabajo con Archivos CSV  
    
 ### 5.1. Introducción a CSV  
@@ -129,16 +113,6 @@ with open('archivo.csv', 'r') as file:
         print(row)  
 ```  
    
-#### Ejercicio 7:  
-Crea un archivo CSV llamado `datos.csv` con las siguientes filas:  
-```  
-nombre,edad,ciudad  
-Juan,28,Madrid  
-Ana,22,Barcelona  
-Luis,35,Valencia  
-```  
-Luego, escribe un programa que lea y muestre el contenido de `datos.csv`.  
-   
 ### 5.3. Escribir archivos CSV  
 El método `csv.writer()` permite escribir datos en un archivo CSV.  
    
@@ -150,15 +124,105 @@ with open('archivo.csv', 'w', newline='') as file:
     writer.writerow(['nombre', 'edad', 'ciudad'])  
     writer.writerow(['Juan', '28', 'Madrid'])  
 ```  
+¡Por supuesto! Aquí tienes un capítulo dedicado al manejo de excepciones en Python utilizando `try` y `except`.  
    
-#### Ejercicio 8:  
-Escribe un programa que cree un archivo CSV llamado `nuevos_datos.csv` y añada las siguientes filas:  
-```  
-nombre,edad,ciudad  
-Marta,30,Sevilla  
-Carlos,25,Zaragoza  
+---  
+   
+## 6. Manejo de Excepciones con `try` y `except`  
+   
+El manejo de excepciones es una parte fundamental de la programación en Python, ya que permite a los desarrolladores manejar errores de manera controlada y mantener el flujo del programa sin interrupciones inesperadas. Python ofrece una estructura de control para manejar excepciones a través de los bloques `try` y `except`.  
+   
+### ¿Qué es una Excepción?  
+   
+Una excepción es un evento que ocurre durante la ejecución de un programa y que interrumpe el flujo normal de las instrucciones del programa. Las excepciones pueden ser causadas por errores en el código, como intentar dividir por cero, o por condiciones externas, como la falta de un archivo que se intenta abrir.  
+   
+### Estructura Básica de `try` y `except`  
+   
+La estructura básica para manejar excepciones en Python es la siguiente:  
+   
+```python  
+try:  
+    # Código que puede causar una excepción  
+except TipoDeExcepcion:  
+    # Código que se ejecuta si ocurre la excepción  
 ```  
    
+### Ejemplo Básico  
+   
+```python  
+try:  
+    numerador = 10  
+    denominador = 0  
+    resultado = numerador / denominador  
+except ZeroDivisionError:  
+    print("Error: No se puede dividir por cero.")  
+```  
+   
+En este ejemplo, intentamos dividir un número por cero, lo cual genera una excepción del tipo `ZeroDivisionError`. El bloque `except` captura esta excepción y ejecuta el código que imprime un mensaje de error.  
+   
+### Uso de Múltiples Excepciones  
+   
+Puedes manejar diferentes tipos de excepciones usando múltiples bloques `except`.  
+   
+```python  
+try:  
+    lista = [1, 2, 3]  
+    print(lista[5])  
+except IndexError:  
+    print("Error: Índice fuera del rango.")  
+except ZeroDivisionError:  
+    print("Error: No se puede dividir por cero.")  
+```  
+   
+En este ejemplo, intentamos acceder a un índice que no existe en la lista, lo que provoca una excepción `IndexError`.  
+   
+### Bloque `else`  
+   
+El bloque `else` se ejecuta si no ocurre ninguna excepción en el bloque `try`.  
+   
+```python  
+try:  
+    resultado = 10 / 2  
+except ZeroDivisionError:  
+    print("Error: No se puede dividir por cero.")  
+else:  
+    print(f"El resultado es {resultado}.")  
+```  
+   
+### Bloque `finally`  
+   
+El bloque `finally` se ejecuta independientemente de si ocurre una excepción o no. Es útil para liberar recursos, como cerrar archivos o conexiones de red.  
+   
+```python  
+try:  
+    archivo = open("datos.txt", "r")  
+    contenido = archivo.read()  
+except FileNotFoundError:  
+    print("Error: El archivo no se encontró.")  
+finally:  
+    archivo.close()  
+    print("Archivo cerrado.")  
+```  
+   
+### Captura de Excepciones Genéricas  
+   
+Puedes capturar todas las excepciones utilizando `except Exception` o simplemente `except`, pero esto debe hacerse con precaución, ya que puede ocultar errores inesperados.  
+   
+```python  
+try:  
+    # Código que puede causar una excepción  
+except Exception as e:  
+    print(f"Ocurrió un error: {e}")  
+```  
+   
+## Resumen  
+   
+- **`try`**: Define un bloque de código para probar una condición que puede causar una excepción.  
+- **`except`**: Define un bloque de código que se ejecuta si ocurre una excepción.  
+- **`else`**: (Opcional) Se ejecuta si no ocurre ninguna excepción.  
+- **`finally`**: (Opcional) Se ejecuta siempre, ocurra o no una excepción.  
+   
+El manejo de excepciones es esencial para crear programas robustos y evitar que errores inesperados interrumpan el funcionamiento normal del software. Practicar el uso
 ## Reto Final  
    
 ### Reto: Gestor de Contactos  
