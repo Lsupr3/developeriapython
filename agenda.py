@@ -1,34 +1,82 @@
-agenda = {"Alice": "539-645-789", "Pedro":"654-356-236", "Ana":"675-898-876"}
-print(agenda)
-operacion = input("[A]gregar, [B]orrar, [C]ambiar, [L]istar: ")
+import csv
+import os
 
-if operacion in ["A", "B", "C", "L"]:
-    print("La operación escogida es:  " + operacion)
-    if operacion == "A":
-        nuevoContacto = input ("Introduzca el nombre del nuevo contácto: ")
-        if nuevoContacto in agenda:
-            print("Ya existe un contácto con ese nombre")
+try: 
+    seguir = True
+    while seguir:
+        #Limpio la consola
+        os.system('clear')
+
+        #Cargo la agenda y la imprimo
+        with open("agenda.csv", "r") as csvFile:
+            reader = csv.reader(csvFile)
+            for contacto in reader:
+                print(contacto)
+        print("")
+        operacion = input("[A]gregar, [B]orrar, [C]ambiar, [S]alir: ")
+
+        if operacion in ["A", "B", "C", "S"]:
+            if operacion == "A":
+                nuevoNombre = input ("Introduzca el nombre del nuevo contácto: ")
+                nuevoApellido = input ("Introduzca el apellido del nuevo contácto: ")
+                nuevoedad = int(input ("Introduzcala edad del nuevo contácto: "))
+                nuevaCiudad = input ("Introduzca la ciudad del nuevo contácto: ")
+
+                with open("agenda.csv", "a") as csvFile:
+                    writer = csv.writer(csvFile)
+                    writer.writerow([nuevoNombre,nuevoApellido,nuevoedad,nuevaCiudad])
+
+            elif operacion == "B":
+                existeContacto = False
+                contacto = input("Introduzca el nombre del contácto que quiere borrar: ")
+                #Leo y guardo todas las filas que no tengan como primera columna el nombre del qcontácto que quiero borrar
+                with open("agenda.csv", "r") as csvFile:
+                    reader = csv.reader(csvFile)
+                    contactos = []
+                    for fila in reader:
+                        if not fila[0] == contacto:
+                            contactos.append(fila)
+                        else:
+                            existeContacto = True
+                
+                if existeContacto:
+                    #Escribo las filas restantes
+                    with open("agenda.csv", "w") as csvFile:
+                        writer = csv.writer(csvFile)
+                        writer.writerows(contactos)
+                else:
+                    print("No se ha encontrado a ningún contácto con ese nombre")
+
+            elif operacion == "C":
+                existeContacto = False
+                contacto = input("Introduzca el nombre del contácto al que quiere cambiarle los datos: ")
+                with open("agenda.csv", "r") as csvFile:
+                    reader = csv.reader(csvFile)
+                    contactos = []
+                    for fila in reader:
+                        if not fila[0] == contacto:
+                            contactos.append(fila)
+                        else:
+                            existeContacto = True
+
+                if existeContacto:
+                    nuevoApellido = input ("Introduzca el nuevo apellido del contácto: ")
+                    nuevoedad = int(input ("Introduzca la nueva edad del  contácto: "))
+                    nuevaCiudad = input ("Introduzca la nueva ciudad del contácto: ")
+                    with open("agenda.csv", "w") as csvFile:
+                        writer = csv.writer(csvFile)
+                        writer.writerows(contactos)
+                        
+                    with open("agenda.csv", "a") as csvFile:
+                        writer = csv.writer(csvFile)
+                        writer.writerow([contacto,nuevoApellido,nuevoedad,nuevaCiudad])
+                else:
+                    print("No hay ningún contácto con ese nombre")
+            elif operacion == "S":
+                seguir = False
         else:
-            telefono = input("Introduzca el teléfono para " + nuevoContacto + ": ")
-            agenda[nuevoContacto] = telefono
-            print(agenda)
-    elif operacion == "B":
-        contacto = input("Introduzca el nombre del contácto que quiere borrar: ")
-        if contacto in agenda:
-            del agenda[contacto]
-            print(agenda)
-        else:
-            print("No existe ninguna persona con ese nombre en la agenda.")
-    elif operacion == "C":
-        contacto = input("Introduzca el nombre del contácto del que quiere cambiarle el teléfono: ")
-        if contacto in agenda:
-            telefono = input("Introduzca el nuevo teléfono: ")
-            # Hacer validación del teléfono
-            agenda[contacto] = telefono
-            print(agenda)
-        else:
-            print("No existe ninguna persona con ese nombre en la agenda.")
-    elif operacion == "L":
-        print(agenda)
-else:
-    print("Operación no permitida")
+            print("Operación no permitida")
+        
+        input("Pulse cualquier tecla para continuar")
+except Exception as e:
+    print(f"Ha saltado la siguiente excepción: {e}" )
