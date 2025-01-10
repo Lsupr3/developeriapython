@@ -2,7 +2,7 @@ import random
 
 
 numeroSecreto = random.randint(1, 100)
-print(numeroSecreto)
+#print(numeroSecreto)
 intentos = 1
 numeroDeIntentos = 10
 tiradas = []
