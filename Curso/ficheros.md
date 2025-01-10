@@ -197,7 +197,7 @@ Implementa el programa completo siguiendo la estructura y las funciones proporci
 ### Conclusión  
 Trabajar con ficheros es una habilidad esencial en la programación. Este curso te ha proporcionado una base sólida para leer, escribir y manipular archivos en Python. Con los conocimientos adquiridos, puedes manejar datos de manera eficiente y persistente en tus proyectos.
 
-¡Por supuesto! Aquí tienes el código del reto final sin utilizar funciones. Todo el código se encuentra en el bloque principal y se organiza utilizando un bucle y estructuras condicionales:
+Aquí tienes el código del reto final sin utilizar funciones. Todo el código se encuentra en el bloque principal y se organiza utilizando un bucle y estructuras condicionales:
 
 ```python  
 import csv  
