@@ -19,7 +19,7 @@ try:
             if operacion == "A":
                 nuevoNombre = input ("Introduzca el nombre del nuevo contácto: ")
                 nuevoApellido = input ("Introduzca el apellido del nuevo contácto: ")
-                nuevoedad = int(input ("Introduzcala edad del nuevo contácto: "))
+                nuevoedad = int(input ("Introduzca edad del nuevo contácto: "))
                 nuevaCiudad = input ("Introduzca la ciudad del nuevo contácto: ")
 
                 with open("agenda.csv", "a") as csvFile:
