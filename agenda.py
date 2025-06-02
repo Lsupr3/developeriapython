@@ -82,5 +82,6 @@ except Exception as e:
     print(f"Ha saltado la siguiente excepción: {e}" )
     print("hola mundo")
     print("que paso manito KLK")
+    print("\n")
 
     
