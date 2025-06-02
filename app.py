@@ -55,3 +55,4 @@ def index_post():
     )
 print("lenin jsoe ")
 print("\n")
+print("lenin")
